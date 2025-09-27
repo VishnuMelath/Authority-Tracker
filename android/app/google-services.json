@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "660486127525",
+    "project_id": "seo-manager-66526",
+    "storage_bucket": "seo-manager-66526.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660486127525:android:b925cb45c1eb48a64f724c",
+        "android_client_info": {
+          "package_name": "com.example.authority_tracker"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzHE_a-rkusK8jkjjQttwlp65XN27LlVU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
