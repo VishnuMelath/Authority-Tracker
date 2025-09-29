@@ -63,7 +63,6 @@ class AuthController extends AuthUsecase {
       final user = userCredential.user;
 
       if (user != null) {
-        // Save additional data in Firestore
         await _firestore.collection("projects").doc(user.uid).set({
           "projectId": user.uid,
           "email": email,

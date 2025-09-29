@@ -1,4 +1,6 @@
-abstract class AuthUsecase {
+import 'package:flutter/material.dart';
+
+abstract class AuthUsecase extends ChangeNotifier {
   Future<void> login({required String email, required String password});
   Future<void> signUp({
     required String email,
