@@ -1,4 +1,5 @@
 import 'package:authority_tracker/core/usecases/auth_usecase.dart';
+import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -12,7 +13,13 @@ class AuthController extends AuthUsecase {
   Future<void> login({required String email, required String password}) async {
     try {
       isloading = true;
-      await _auth.signInWithEmailAndPassword(email: email, password: password);
+      var user = (await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      )).user;
+      if (user != null) {
+        await UserCache.saveLogedIn(login: true, projectId: user.uid);
+      }
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);
     } finally {
@@ -26,6 +33,7 @@ class AuthController extends AuthUsecase {
     try {
       isloading = true;
       await _auth.signOut();
+      await UserCache.clear();
     } catch (e) {
       throw Exception("Logout failed: $e");
     } finally {
@@ -69,6 +77,7 @@ class AuthController extends AuthUsecase {
           "projectName": projectName,
           "createdAt": FieldValue.serverTimestamp(),
         });
+        await UserCache.saveLogedIn(login: true, projectId: user.uid);
       }
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);

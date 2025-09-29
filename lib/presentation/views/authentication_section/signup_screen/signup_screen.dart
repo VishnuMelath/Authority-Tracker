@@ -1,6 +1,8 @@
+import 'package:authority_tracker/presentation/controllers/auth_controller.dart';
 import 'package:authority_tracker/presentation/views/shared/widgets/custom_button.dart';
 import 'package:authority_tracker/presentation/views/shared/widgets/custom_textfield.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -21,8 +23,13 @@ class _SignupScreenState extends State<SignupScreen> {
         key: formKey,
         child: Column(
           spacing: 15,
+          crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            const Text(
+              'Signup',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
             CustomTextfield(hintText: 'Email', controller: emailController),
             CustomTextfield(
               hintText: 'Project name',
@@ -35,7 +42,24 @@ class _SignupScreenState extends State<SignupScreen> {
                 return null;
               },
             ),
-            CustomButton(label: 'Signup', onTap: () {}),
+            Consumer<AuthController>(
+              builder: (context, controller, _) {
+                return CustomButton(
+                  isLoading: controller.isloading,
+                  label: 'Signup',
+                  onTap: () {
+                    if (formKey.currentState!.validate()) {
+                      controller.signUp(
+                        email: emailController.text,
+                        password: passController.text,
+                        projectName: nameController.text,
+                      );
+                    }
+                    {}
+                  },
+                );
+              },
+            ),
           ],
         ),
       ),
