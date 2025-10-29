@@ -1,6 +1,5 @@
 import 'package:authority_tracker/config/route/route_names.dart';
 import 'package:authority_tracker/config/theme/colors.dart';
-import 'package:authority_tracker/presentation/controllers/auth_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -16,7 +15,6 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Future.delayed(Durations.medium4, () {
       // ignore: use_build_context_synchronously
-      // AuthController().test();
       context.goNamed(AppRouteNames.login);
     });
     super.initState();
