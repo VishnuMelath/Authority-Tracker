@@ -36,7 +36,7 @@ android {
         applicationId = "com.example.authority_tracker"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
-        minSdk = 23
+        minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
@@ -62,7 +62,8 @@ flutter {
 }
 
 dependencies {
-    // ...
     implementation("com.google.android.material:material:1.13.0")
-    // ...
+    implementation(platform("com.google.firebase:firebase-bom:33.2.0"))
+    implementation("com.google.android.gms:play-services-gcm:17.0.0")
+
 }

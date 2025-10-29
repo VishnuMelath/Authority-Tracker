@@ -15,6 +15,10 @@ class CustomTextfield extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    OutlineInputBorder border = OutlineInputBorder(
+      borderRadius: BorderRadius.circular(15),
+      borderSide: BorderSide(color: Colors.grey.withAlpha(120)),
+    );
     return TextFormField(
       validator: validator,
       controller: controller,
@@ -28,22 +32,12 @@ class CustomTextfield extends StatelessWidget {
           horizontal: 20,
           vertical: 15,
         ),
-
         hintText: hintText,
         hintStyle: TextStyle(fontSize: 14, color: Colors.grey.withAlpha(150)),
         isCollapsed: true,
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(100),
-          borderSide: BorderSide(color: Colors.grey.withAlpha(120)),
-        ),
-        enabledBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(100),
-          borderSide: BorderSide(color: Colors.grey.withAlpha(120)),
-        ),
-        focusedBorder: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(100),
-          borderSide: BorderSide(color: Colors.grey.withAlpha(120)),
-        ),
+        border: border,
+        enabledBorder: border,
+        focusedBorder: border,
       ),
     );
   }

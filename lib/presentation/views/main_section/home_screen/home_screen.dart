@@ -24,6 +24,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton.extended(
+        label: const Text('Add Permit'),
+        onPressed: () {},
+      ),
       body: Consumer<PermitController>(
         builder: (context, controller, child) {
           if (controller.isloading == true) {
@@ -70,6 +74,7 @@ class PermitTile extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(children: [Text(permitsModel.name)]),
+          // Text(permitsModel.'')
         ],
       ),
     );

@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:authority_tracker/core/usecases/auth_usecase.dart';
 import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -80,9 +82,20 @@ class AuthController extends AuthUsecase {
         await UserCache.saveLogedIn(login: true, projectId: user.uid);
       }
     } on FirebaseAuthException catch (e) {
+      log(e.toString());
       throw Exception(e.message);
     } finally {
       isloading = false;
+    }
+  }
+
+  Future test() async {
+    try {
+      var responce = await _firestore.collection('test').add({
+        'test': 'just test',
+      });
+    } on FirebaseException catch (e) {
+      log(e.message ?? 'null');
     }
   }
 }

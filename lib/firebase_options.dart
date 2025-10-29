@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCOzfzclhSADobjxfjOTsjWpYhD1RMLd_s',
-    appId: '1:660486127525:web:b43f668019e3e6294f724c',
-    messagingSenderId: '660486127525',
-    projectId: 'seo-manager-66526',
-    authDomain: 'seo-manager-66526.firebaseapp.com',
-    storageBucket: 'seo-manager-66526.firebasestorage.app',
-    measurementId: 'G-6M2ET1PRLJ',
+    apiKey: 'AIzaSyCLBixe34-2GiZ1xqlSv2BNDWtZDInEcS4',
+    appId: '1:1051440179499:web:09c469050d02b4e417fd6e',
+    messagingSenderId: '1051440179499',
+    projectId: 'authority-tracker',
+    authDomain: 'authority-tracker.firebaseapp.com',
+    storageBucket: 'authority-tracker.firebasestorage.app',
+    measurementId: 'G-V8KNZB8TS2',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDzHE_a-rkusK8jkjjQttwlp65XN27LlVU',
-    appId: '1:660486127525:android:b925cb45c1eb48a64f724c',
-    messagingSenderId: '660486127525',
-    projectId: 'seo-manager-66526',
-    storageBucket: 'seo-manager-66526.firebasestorage.app',
+    apiKey: 'AIzaSyCBFHA9NLGY_3soR8Yr5GbeNBZUOoSFdHQ',
+    appId: '1:1051440179499:android:78cb9f99f0715b6a17fd6e',
+    messagingSenderId: '1051440179499',
+    projectId: 'authority-tracker',
+    storageBucket: 'authority-tracker.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB239XGfYCPJWT0dRjnvnz6wEjr0f_lVe0',
-    appId: '1:660486127525:ios:90b0249967787a1a4f724c',
-    messagingSenderId: '660486127525',
-    projectId: 'seo-manager-66526',
-    storageBucket: 'seo-manager-66526.firebasestorage.app',
+    apiKey: 'AIzaSyATAsEXSdj0HuJ7tM3cZi4-ZvSw7kZNUpg',
+    appId: '1:1051440179499:ios:939b19db323c2a3517fd6e',
+    messagingSenderId: '1051440179499',
+    projectId: 'authority-tracker',
+    storageBucket: 'authority-tracker.firebasestorage.app',
     iosBundleId: 'com.example.authorityTracker',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB239XGfYCPJWT0dRjnvnz6wEjr0f_lVe0',
-    appId: '1:660486127525:ios:90b0249967787a1a4f724c',
-    messagingSenderId: '660486127525',
-    projectId: 'seo-manager-66526',
-    storageBucket: 'seo-manager-66526.firebasestorage.app',
+    apiKey: 'AIzaSyATAsEXSdj0HuJ7tM3cZi4-ZvSw7kZNUpg',
+    appId: '1:1051440179499:ios:939b19db323c2a3517fd6e',
+    messagingSenderId: '1051440179499',
+    projectId: 'authority-tracker',
+    storageBucket: 'authority-tracker.firebasestorage.app',
     iosBundleId: 'com.example.authorityTracker',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCOzfzclhSADobjxfjOTsjWpYhD1RMLd_s',
-    appId: '1:660486127525:web:1f9709dfb5e8e3de4f724c',
-    messagingSenderId: '660486127525',
-    projectId: 'seo-manager-66526',
-    authDomain: 'seo-manager-66526.firebaseapp.com',
-    storageBucket: 'seo-manager-66526.firebasestorage.app',
-    measurementId: 'G-H9Q6YC30PP',
+    apiKey: 'AIzaSyCLBixe34-2GiZ1xqlSv2BNDWtZDInEcS4',
+    appId: '1:1051440179499:web:68c1773ed4eb2cc817fd6e',
+    messagingSenderId: '1051440179499',
+    projectId: 'authority-tracker',
+    authDomain: 'authority-tracker.firebaseapp.com',
+    storageBucket: 'authority-tracker.firebasestorage.app',
+    measurementId: 'G-K8THXSCXDG',
   );
+
 }
