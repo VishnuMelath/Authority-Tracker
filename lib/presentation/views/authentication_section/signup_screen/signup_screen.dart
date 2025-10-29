@@ -56,6 +56,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     onTap: () {
                       if (formKey.currentState!.validate()) {
                         controller.signUp(
+                          context,
                           email: emailController.text,
                           password: passController.text,
                           projectName: nameController.text,

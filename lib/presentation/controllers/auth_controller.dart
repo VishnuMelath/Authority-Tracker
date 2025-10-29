@@ -1,9 +1,14 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'dart:developer';
 
+import 'package:authority_tracker/config/route/route_names.dart';
 import 'package:authority_tracker/core/usecases/auth_usecase.dart';
 import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AuthController extends AuthUsecase {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -12,7 +17,11 @@ class AuthController extends AuthUsecase {
   bool isloading = false;
 
   @override
-  Future<void> login({required String email, required String password}) async {
+  Future<void> login(
+    BuildContext context, {
+    required String email,
+    required String password,
+  }) async {
     try {
       isloading = true;
       var user = (await _auth.signInWithEmailAndPassword(
@@ -21,7 +30,8 @@ class AuthController extends AuthUsecase {
       )).user;
       if (user != null) {
         await UserCache.saveLogedIn(login: true, projectId: user.uid);
-      }
+        context.goNamed(AppRouteNames.homeScreen);
+      } else {}
     } on FirebaseAuthException catch (e) {
       throw Exception(e.message);
     } finally {
@@ -31,11 +41,12 @@ class AuthController extends AuthUsecase {
 
   /// Logout user
   @override
-  Future<void> logout() async {
+  Future<void> logout(BuildContext context) async {
     try {
       isloading = true;
       await _auth.signOut();
       await UserCache.clear();
+      context.goNamed(AppRouteNames.login);
     } catch (e) {
       throw Exception("Logout failed: $e");
     } finally {
@@ -45,7 +56,10 @@ class AuthController extends AuthUsecase {
 
   /// Forgot password
   @override
-  Future<void> forgotPassword({required String email}) async {
+  Future<void> forgotPassword(
+    BuildContext context, {
+    required String email,
+  }) async {
     try {
       isloading = true;
       await _auth.sendPasswordResetEmail(email: email);
@@ -58,7 +72,8 @@ class AuthController extends AuthUsecase {
 
   /// Signup user and store project details in Firestore
   @override
-  Future<void> signUp({
+  Future<void> signUp(
+    BuildContext context, {
     required String email,
     required String password,
     required String projectName,
@@ -80,7 +95,8 @@ class AuthController extends AuthUsecase {
           "createdAt": FieldValue.serverTimestamp(),
         });
         await UserCache.saveLogedIn(login: true, projectId: user.uid);
-      }
+        context.goNamed(AppRouteNames.homeScreen);
+      } else {}
     } on FirebaseAuthException catch (e) {
       log(e.toString());
       throw Exception(e.message);
@@ -89,13 +105,13 @@ class AuthController extends AuthUsecase {
     }
   }
 
-  Future test() async {
-    try {
-      var responce = await _firestore.collection('test').add({
-        'test': 'just test',
-      });
-    } on FirebaseException catch (e) {
-      log(e.message ?? 'null');
-    }
-  }
+  // Future test() async {
+  //   try {
+  //     var responce = await _firestore.collection('test').add({
+  //       'test': 'just test',
+  //     });
+  //   } on FirebaseException catch (e) {
+  //     log(e.message ?? 'null');
+  //   }
+  // }
 }
