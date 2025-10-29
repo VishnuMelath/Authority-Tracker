@@ -5,13 +5,15 @@ class UserCache {
   static String? projectId;
   static Future<void> saveLogedIn({
     required bool login,
-    required String projectId,
+    required String projectIdArg,
   }) async {
     try {
       var sharedPreferences = await SharedPreferences.getInstance();
       isLoggedIn = login;
+      projectId = projectIdArg;
+
       await sharedPreferences.setBool('isLoggedIn', login);
-      await sharedPreferences.setString('projectId', projectId);
+      await sharedPreferences.setString('projectId', projectIdArg);
     } on Exception catch (_) {
       isLoggedIn = false;
     }

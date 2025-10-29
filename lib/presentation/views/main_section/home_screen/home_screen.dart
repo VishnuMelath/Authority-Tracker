@@ -1,6 +1,7 @@
 import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:authority_tracker/domain/models/permits_model.dart';
 import 'package:authority_tracker/presentation/controllers/permit_controller.dart';
+import 'package:authority_tracker/presentation/views/main_section/dialog/home_add_permit_dialogue.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +27,9 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       floatingActionButton: FloatingActionButton.extended(
         label: const Text('Add Permit'),
-        onPressed: () {},
+        onPressed: () {
+          showAddUPermitDailogue(context);
+        },
       ),
       body: Consumer<PermitController>(
         builder: (context, controller, child) {

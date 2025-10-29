@@ -21,19 +21,22 @@ class _HomeAddUpdatePermitDialogueState
     extends State<HomeAddUpdatePermitDialogue> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.all(15),
-      padding: const EdgeInsets.all(15),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-      ),
-      child: const Column(
-        spacing: 10,
-        children: [
-          CustomTextfield(hintText: 'name'),
-          CustomTextfield(hintText: 'pdf link'),
-        ],
+    return Material(
+      color: Colors.transparent,
+      child: Container(
+        margin: const EdgeInsets.all(15),
+        padding: const EdgeInsets.all(15),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+        ),
+        child: const Column(
+          spacing: 10,
+          children: [
+            CustomTextfield(hintText: 'name'),
+            CustomTextfield(hintText: 'pdf link'),
+          ],
+        ),
       ),
     );
   }

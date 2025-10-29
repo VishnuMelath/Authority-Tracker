@@ -1,5 +1,8 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:authority_tracker/config/route/route_names.dart';
 import 'package:authority_tracker/config/theme/colors.dart';
+import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -13,9 +16,13 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Durations.medium4, () {
-      // ignore: use_build_context_synchronously
-      context.goNamed(AppRouteNames.login);
+    Future.delayed(Durations.medium4, () async {
+      var isloggedIn = await UserCache.checkIsLoggedIn();
+      if (isloggedIn) {
+        context.goNamed(AppRouteNames.homeScreen);
+      } else {
+        context.goNamed(AppRouteNames.login);
+      }
     });
     super.initState();
   }
