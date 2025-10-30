@@ -28,7 +28,6 @@ class AuthController extends AuthUsecase {
         email: email,
         password: password,
       )).user;
-      log(user?.uid.toString() ?? 'null');
       if (user != null) {
         await UserCache.saveLogedIn(login: true, projectIdArg: user.uid);
         context.goNamed(AppRouteNames.homeScreen);
