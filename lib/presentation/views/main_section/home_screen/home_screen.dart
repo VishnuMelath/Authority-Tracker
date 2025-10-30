@@ -1,5 +1,6 @@
 import 'package:authority_tracker/data/data_sources/user_cache.dart';
 import 'package:authority_tracker/domain/models/permits_model.dart';
+import 'package:authority_tracker/presentation/controllers/notification_controller.dart';
 import 'package:authority_tracker/presentation/controllers/permit_controller.dart';
 import 'package:authority_tracker/presentation/views/main_section/dialog/home_add_permit_dialogue.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       context,
       listen: false,
     ).getPermitsByProject(UserCache.projectId!);
+    NotificationController().login();
     super.initState();
   }
 
