@@ -19,7 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
     Provider.of<PermitController>(
       context,
       listen: false,
-    ).getPermitsByProject(UserCache.projectId!);
+    ).getPermitsByProject(context, UserCache.projectId!);
     NotificationController().login();
     super.initState();
   }
@@ -51,7 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
             return Center(
               child: GestureDetector(
                 onTap: () {
-                  controller.getPermitsByProject(UserCache.projectId!);
+                  controller.getPermitsByProject(context, UserCache.projectId!);
                 },
                 child: const Text('Error!\nTap to retry'),
               ),

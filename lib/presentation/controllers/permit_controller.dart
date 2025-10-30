@@ -7,7 +7,7 @@ class PermitController extends ChangeNotifier {
   List<PermitsModel> permits = [];
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
-  Future<void> createPermit(PermitsModel permit) async {
+  Future<void> createPermit(BuildContext context, PermitsModel permit) async {
     try {
       isloading = true;
       notifyListeners();
@@ -21,7 +21,7 @@ class PermitController extends ChangeNotifier {
     }
   }
 
-  Future<void> updatePermit(PermitsModel permit) async {
+  Future<void> updatePermit(BuildContext context, PermitsModel permit) async {
     try {
       isloading = true;
       notifyListeners();
@@ -38,7 +38,7 @@ class PermitController extends ChangeNotifier {
     }
   }
 
-  Future<void> deletePermit(String permitId) async {
+  Future<void> deletePermit(BuildContext context, String permitId) async {
     try {
       isloading = true;
       notifyListeners();
@@ -52,7 +52,10 @@ class PermitController extends ChangeNotifier {
     }
   }
 
-  Future<void> getPermitsByProject(String projectId) async {
+  Future<void> getPermitsByProject(
+    BuildContext context,
+    String projectId,
+  ) async {
     try {
       isloading = true;
       notifyListeners();
